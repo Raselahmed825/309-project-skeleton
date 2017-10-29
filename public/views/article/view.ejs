@@ -1,18 +1,11 @@
 <html>
-    
     <head>
-        <title>All articles</title>
+        <title>Arctile</title>
     </head>
     <body>
-        
-        
         <h1>Article</h1>
-        <% console.log(request.article)%>
-        <h2><%=request.article.title %></h2>
-        <p><%=request.article.content%></p>
-        
+        <% console.log(request.article) %>
+        <h2> Title: <%= request.article.title %></h2>
+        <p> <%= request.article.content %> </p>
     </body>
-    
-    
-    
 </html>
