@@ -4,5 +4,40 @@
     </head>
     <body>
         <h1>Article</h1>
-    </body>
+        <div>title:
+                <input type="text" id ="title"/>
+        </div><br>
+        <div>content:
+                <textarea id= "content"></textarea>
+        </div><br>
+            <button id ="submit">submit</button>
+        
+        
+        <script src="/lib/jquery/dist/jquery.min.js"></script> 
+        <script>
+            
+            var article = {title: "", content:""};
+            $("#title").change(function(){
+                article.title = $("#title").val();
+            });
+             $("#content").change(function(){
+                article.content = $("#content").val();
+            });
+            
+            $("#submit").click(function(){
+                console.log(article);
+                $.ajax({
+                    
+                    method: "POST",
+                    url:"/api/articles",
+                    data: article
+                    
+                    
+                }).done(function(response){
+                    console.log(response);
+                });
+            });
+        </script>
+        
+        </body>
 </html>
