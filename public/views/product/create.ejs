@@ -17,7 +17,7 @@
          <div>Quantity:
                 <input type="number" id= "quantity"/>
         </div>
-       
+       <div> <id="error"></id> </div>
           <button id ="submit">submit</button>
         
         <script src="/lib/jquery/dist/jquery.min.js"></script> 
@@ -32,7 +32,8 @@
             });
             
                  $("#price").change(function(){
-                product.price = $("#price").val();
+               product.price = undefined;
+               // product.price = $("#price").val();
             });
              $("#quantity").change(function(){
                 product.quantity = $("#quantity").val();
@@ -49,6 +50,10 @@
                     
                 }).done(function(response){
                     console.log(response);
+                    window.location.replace("/products/"+response._id);
+                }).fail(function(response){
+                    $("#error").text(JSON.parse(response.responseText).message); 
+                  console.log(JSON.parse(response.responseText).message);  
                 });
             });
         </script>

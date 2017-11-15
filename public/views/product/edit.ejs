@@ -5,7 +5,7 @@
     <body>
         <h1>Edit Product</h1>
         <div>Name:
-                <input type="text" id ="name" value = <%=request.product.name%> />
+                <input type="text" id ="name" value = "<%=request.product.name%>" />
         </div><br>
         <div>description:
                 <textarea id= "description"> <%=request.product.description%></textarea>
@@ -50,6 +50,9 @@
                     
                 }).done(function(response){
                     console.log(response);
+                    window.location.replace("/products/"+response._id);
+                }).fail(function(response){
+                  console.log(response);  
                 });
             });
         </script>
